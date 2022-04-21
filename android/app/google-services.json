@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "856587444376",
+    "project_id": "motekar-pulsa",
+    "storage_bucket": "motekar-pulsa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856587444376:android:1378a400ad16d6c6f6f0ed",
+        "android_client_info": {
+          "package_name": "com.motekarpulsa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856587444376-c6eshmm8cr2l7toqog7qpf7js3lfoabk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArTuOPhVGHB0YoQ-3NcZc0UXCLcNH00f8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856587444376-c6eshmm8cr2l7toqog7qpf7js3lfoabk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
