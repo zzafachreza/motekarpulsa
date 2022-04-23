@@ -40,6 +40,7 @@ import SuratIzin from './SuratIzin';
 import Jenis from './Jenis';
 import Asset from './Asset';
 import Add from './Add';
+import Add2 from './Add2';
 
 
 
@@ -47,6 +48,8 @@ export {
   Splash,
   SuratIzin,
   Add,
+  Add2
+  ,
   Asset,
   Jadwal,
   Pinjam,

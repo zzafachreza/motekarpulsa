@@ -51,6 +51,7 @@ import {
   Jenis,
   Asset,
   Add,
+  Add2,
 } from '../pages';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigator } from '../components';
@@ -201,6 +202,30 @@ export default function Router() {
       <Stack.Screen
         name="Add"
         component={Add}
+        options={{
+          headerTitle: 'Tukar Uang Dengan Pulsa',
+          headerShown: false,
+
+          cardStyleInterpolator: ({ current, layouts }) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Add2"
+        component={Add2}
         options={{
           headerTitle: 'Tukar Uang Dengan Pulsa',
           headerShown: false,

@@ -111,7 +111,7 @@ export default function Home({ navigation }) {
     axios
       .post('https://motekarpulsa.zavalabs.com/api/absen_asset.php')
       .then(x => {
-        console.log(x.data);
+        console.error('rate', x.data);
         setData(x.data);
       });
 

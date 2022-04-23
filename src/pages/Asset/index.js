@@ -37,35 +37,8 @@ export default function ({ navigation, route }) {
     }, []);
 
 
-    const updateStatusAsset = (x, y) => {
-        // alert(x + ' ' + y);
-        axios.post('https://motekarpulsa.zavalabs.com/api/absen_asset_update.php', {
-            id_asset: x,
-            status_asset: y,
-        }).then(res => {
-            getDataBarang();
-        })
 
-    }
 
-    const confirmAsset = (x, y) => {
-        Alert.alert(
-            "Apakah asset ini milik Anda ?",
-            y,
-            [
-
-                {
-                    text: "TIDAK",
-                    onPress: () => updateStatusAsset(x, 'TIDAK'),
-
-                },
-                {
-                    text: "YA", onPress: () => updateStatusAsset(x, 'YA')
-
-                }
-            ]
-        );
-    }
 
     const getDataBarang = () => {
         axios

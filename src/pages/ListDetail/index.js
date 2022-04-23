@@ -440,14 +440,13 @@ export default function ListDetail({ navigation, route }) {
         </View>
         {/* ---- */}
         {/* ---- */}
-        <View style={{ flexDirection: 'row' }}>
-          <View style={{ flex: 1, padding: 10 }}>
+        <View style={{ flexDirection: 'row', backgroundColor: '#DEDEDE' }}>
+          <View style={{ flex: 1, padding: 10, justifyContent: 'center' }}>
             <Text
               style={{
-                fontFamily: fonts.secondary[400],
-                backgroundColor: colors.white,
-
+                fontFamily: fonts.secondary[600],
                 color: colors.black,
+                fontSize: 14
               }}>
               Transfer Pulsa Ke
             </Text>
@@ -460,17 +459,16 @@ export default function ListDetail({ navigation, route }) {
             <Text
               style={{
                 fontFamily: fonts.secondary[600],
-                backgroundColor: colors.white,
-                fontSize: 14,
+                fontSize: windowWidth / 15,
                 padding: 10,
-                color: colors.black,
+                color: colors.danger,
               }}>
               {item.nomor_asset}
             </Text>
           </View>
-        </View>
+        </View >
         {/* ---- */}
-      </View>
+      </View >
     );
   };
 

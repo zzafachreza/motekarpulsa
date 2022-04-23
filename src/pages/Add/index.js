@@ -20,6 +20,7 @@ export default function ({ navigation, route }) {
     const [data, setData] = useState({
         fid_asset: item.id,
         rate: item.harga_asset,
+        nomor: item.nomor_asset,
         pulsa: 0,
         harga: 0,
         fid_user: 0,
@@ -162,16 +163,17 @@ export default function ({ navigation, route }) {
 
     const kirim = () => {
         console.error(data);
-        setLoading(true);
+        navigation.navigate('Add2', data);
+        // setLoading(true);
 
-        axios
-            .post('https://motekarpulsa.zavalabs.com/api/1add_transaksi.php', data)
-            .then(x => {
-                setLoading(false);
-                alert('Transaksi Berhasil Di Kirim, silahkan tunggu beberapa saat');
-                console.log('respose server', x.data);
-                navigation.replace('MainApp');
-            });
+        // axios
+        //     .post('https://motekarpulsa.zavalabs.com/api/1add_transaksi.php', data)
+        //     .then(x => {
+        //         setLoading(false);
+        //         alert('Transaksi Berhasil Di Kirim, silahkan tunggu beberapa saat');
+        //         console.log('respose server', x.data);
+        //         navigation.replace('MainApp');
+        //     });
     };
 
 
@@ -438,12 +440,13 @@ export default function ({ navigation, route }) {
                     atas_nama: x
                 })} />
 
-                <UploadFoto
+                {/* <UploadFoto
                     onPress1={() => getCamera(1)}
                     onPress2={() => getGallery(1)}
                     label="Upload Foto / Bukti Transfer Pulsa"
                     foto={foto}
-                />
+                /> */}
+                <MyGap jarak={10} />
                 <MyButton
                     onPress={kirim}
                     title="SIMPAN TRANSAKSI"

@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Icon, ListItem, Button} from 'react-native-elements';
-import {colors} from '../../utils/colors';
-import {fonts} from '../../utils/fonts';
-import {TextInput} from 'react-native-gesture-handler';
+import { StyleSheet, Text, View } from 'react-native';
+import { Icon, ListItem, Button } from 'react-native-elements';
+import { colors } from '../../utils/colors';
+import { fonts } from '../../utils/fonts';
+import { TextInput } from 'react-native-gesture-handler';
 
 export default function MyInput({
   onFocus,
@@ -35,7 +35,7 @@ export default function MyInput({
             fontFamily: fonts.secondary[600],
             color: colors.primary,
             left: 10,
-            fontSize: 16,
+            fontSize: 12,
             ...styleLabel,
           }}>
           {label}
@@ -47,7 +47,7 @@ export default function MyInput({
             fontFamily: fonts.secondary[600],
             color: colors.primary,
             left: 10,
-            fontSize: 14,
+            fontSize: 12,
             marginVertical: 1,
             ...styleLabel,
           }}>
@@ -70,7 +70,7 @@ export default function MyInput({
           borderWidth: 1,
           paddingLeft: 10,
           color: colors.black,
-          fontSize: 18,
+          fontSize: 12,
           fontFamily: fonts.primary[400],
           ...styleInput,
         }}
