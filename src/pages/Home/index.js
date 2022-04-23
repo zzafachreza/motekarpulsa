@@ -96,6 +96,23 @@ export default function Home({ navigation }) {
 
   useEffect(() => {
 
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+
+      const json = JSON.stringify(remoteMessage);
+      const obj = JSON.parse(json);
+
+      navigation.navigate('ListDetail', {
+        kode: obj.notification.title.toString().substring(0, 15)
+      })
+
+      PushNotification.localNotification({
+        /* Android Only Properties */
+        channelId: 'motekarpulsa', // (required) channelId, if the channel doesn't exist, notification will not trigger.
+        title: obj.notification.title, // (optional)
+        message: obj.notification.body, // (required)
+      });
+    });
+
 
 
 
@@ -136,7 +153,7 @@ export default function Home({ navigation }) {
 
 
     });
-
+    return unsubscribe;
   }, []);
 
   const windowWidth = Dimensions.get('window').width;

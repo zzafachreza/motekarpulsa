@@ -26,23 +26,23 @@ export default function ListDetail({ navigation, route }) {
   const [buka, setBuka] = useState(false);
 
   useEffect(() => {
-
-    const unsubscribe = messaging().onMessage(async remoteMessage => {
-
-      const json = JSON.stringify(remoteMessage);
-      const obj = JSON.parse(json);
-      DataDetail();
-
-      PushNotification.localNotification({
-        /* Android Only Properties */
-        channelId: 'motekarpulsa', // (required) channelId, if the channel doesn't exist, notification will not trigger.
-        title: obj.notification.title, // (optional)
-        message: obj.notification.body, // (required)
-      });
-    });
-
     DataDetail();
-    return unsubscribe;
+    // const unsubscribe = messaging().onMessage(async remoteMessage => {
+
+    //   const json = JSON.stringify(remoteMessage);
+    //   const obj = JSON.parse(json);
+    //   DataDetail();
+
+    //   PushNotification.localNotification({
+    //     /* Android Only Properties */
+    //     channelId: 'motekarpulsa', // (required) channelId, if the channel doesn't exist, notification will not trigger.
+    //     title: obj.notification.title, // (optional)
+    //     message: obj.notification.body, // (required)
+    //   });
+    // });
+    // return unsubscribe;
+
+
   }, []);
   let nama_icon = '';
 
@@ -56,7 +56,7 @@ export default function ListDetail({ navigation, route }) {
   const DataDetail = () => {
     axios
       .post('https://motekarpulsa.zavalabs.com/api/transaksi_detail.php', {
-        id_transaksi: item.id,
+        kode: item.kode,
       })
       .then(res => {
         console.log('detail transaksi', res.data);
@@ -78,7 +78,7 @@ export default function ListDetail({ navigation, route }) {
             padding: 10,
             color: colors.white,
           }}>
-          {item.kode} - {item.tanggal}
+          {data.kode} - {data.tanggal}
         </Text>
         {/* --- */}
         <View style={{ flexDirection: 'row' }}>
@@ -106,7 +106,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {item.nama_lengkap}
+              {data.nama_lengkap}
             </Text>
           </View>
         </View>
@@ -143,7 +143,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {item.no_hp}
+              {data.no_hp}
             </Text>
           </View>
         </View>
@@ -179,7 +179,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {item.email}
+              {data.email}
             </Text>
           </View>
         </View>
@@ -228,7 +228,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {item.nama_asset}
+              {data.nama_asset}
             </Text>
           </View>
         </View>
@@ -265,7 +265,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {item.rate}
+              {data.rate}
             </Text>
           </View>
         </View>
@@ -301,7 +301,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {new Intl.NumberFormat().format(item.pulsa)}
+              {new Intl.NumberFormat().format(data.pulsa)}
             </Text>
           </View>
         </View>
@@ -338,7 +338,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {new Intl.NumberFormat().format(item.harga)}
+              {new Intl.NumberFormat().format(data.harga)}
             </Text>
           </View>
         </View>
@@ -374,7 +374,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {item.bank}
+              {data.bank}
             </Text>
           </View>
         </View>
@@ -404,7 +404,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {item.rekening}
+              {data.rekening}
             </Text>
           </View>
         </View>
@@ -434,7 +434,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.black,
               }}>
-              {item.atas_nama}
+              {data.atas_nama}
             </Text>
           </View>
         </View>
@@ -463,7 +463,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.danger,
               }}>
-              {item.nomor_asset}
+              {data.nomor_asset}
             </Text>
           </View>
         </View >
@@ -477,6 +477,7 @@ export default function ListDetail({ navigation, route }) {
       style={{
         flex: 1,
       }}>
+
       {!buka && <View style={{
         flex: 1,
         justifyContent: 'center',
@@ -498,6 +499,13 @@ export default function ListDetail({ navigation, route }) {
           </Text>
           <DataTransaksi />
 
+          <Image s source={{
+            uri: 'https://motekarpulsa.zavalabs.com/datafoto/' + data.foto,
+          }} style={{
+            resizeMode: 'contain',
+            height: 300
+          }} />
+
         </ScrollView>
         <View
           style={{
@@ -517,7 +525,13 @@ export default function ListDetail({ navigation, route }) {
           }}>
             {data.status_transaksi}
           </Text>
+
+
+
+
+
         </View></>}
+
     </SafeAreaView>
   );
 }

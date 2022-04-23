@@ -87,7 +87,7 @@ export default function ({ navigation, route }) {
             fontSize: windowWidth / 30,
             color: colors.white,
             paddingHorizontal: 10,
-            backgroundColor: item.status_transaksi == "OPEN" ? colors.danger : colors.success,
+            backgroundColor: item.status_transaksi == "OPEN" ? colors.danger : item.status_transaksi == "EXPIRED" ? colors.border : colors.success,
             fontFamily: fonts.secondary[600],
           }}>
           {item.status_transaksi}
