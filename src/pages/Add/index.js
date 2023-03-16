@@ -163,17 +163,17 @@ export default function ({ navigation, route }) {
 
     const kirim = () => {
         console.error(data);
-        navigation.navigate('Add2', data);
-        // setLoading(true);
 
-        // axios
-        //     .post('https://motekarpulsa.zavalabs.com/api/1add_transaksi.php', data)
-        //     .then(x => {
-        //         setLoading(false);
-        //         alert('Transaksi Berhasil Di Kirim, silahkan tunggu beberapa saat');
-        //         console.log('respose server', x.data);
-        //         navigation.replace('MainApp');
-        //     });
+        setLoading(true);
+
+        axios
+            .post('https://motekarpulsa.zavalabs.com/api/1add_transaksi.php', data)
+            .then(x => {
+                setLoading(false);
+
+                console.log('respose server', x.data);
+                navigation.navigate('Add2', data);
+            });
     };
 
 

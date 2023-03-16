@@ -463,7 +463,7 @@ export default function ListDetail({ navigation, route }) {
                 padding: 10,
                 color: colors.danger,
               }}>
-              {data.nomor_asset}
+              {data.nomor}
             </Text>
           </View>
         </View >
@@ -498,15 +498,56 @@ export default function ListDetail({ navigation, route }) {
             TRANSAKSI
           </Text>
           <DataTransaksi />
-
+          <Text
+            style={{
+              fontFamily: fonts.secondary[600],
+              backgroundColor: colors.primary,
+              padding: 10,
+              color: colors.white,
+            }}>
+            Bukti Transfer Pulsa
+          </Text>
           <Image s source={{
             uri: 'https://motekarpulsa.zavalabs.com/datafoto/' + data.foto,
           }} style={{
             resizeMode: 'contain',
             height: 300
           }} />
+          <Text
+            style={{
+              fontFamily: fonts.secondary[600],
+              backgroundColor: colors.primary,
+              padding: 10,
+              color: colors.white,
+            }}>
+            Bukti Transfer Uang
+          </Text>
+          <Image s source={{
+            uri: 'https://motekarpulsa.zavalabs.com/' + data.foto_kirim,
+          }} style={{
+            resizeMode: 'contain',
+            height: 300
+          }} />
 
         </ScrollView>
+        {data.status_transaksi == "OPEN" && <TouchableOpacity onPress={() => navigation.navigate('Add2', data)} style={{
+
+          backgroundColor: colors.secondary,
+          padding: 10,
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row'
+        }}>
+          <Icon type='ionicon' name='download' color={colors.white} size={windowWidth / 20} />
+          <Text style={{
+            left: 5,
+            fontFamily: fonts.secondary[600],
+            fontSize: windowWidth / 28,
+            color: colors.white
+          }}>
+            Upload Bukti Transfer Pulsa
+          </Text>
+        </TouchableOpacity>}
         <View
           style={{
 

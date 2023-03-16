@@ -131,15 +131,16 @@ export default function Add2({ navigation, route }) {
     const [loading, setLoading] = useState(false);
     const kirim = () => {
         console.error(data);
-        navigation.navigate('Add2', data);
+
         setLoading(true);
 
         axios
-            .post('https://motekarpulsa.zavalabs.com/api/1add_transaksi.php', data)
+            .post('https://motekarpulsa.zavalabs.com/api/1add_transaksi2.php', data)
             .then(x => {
                 setLoading(false);
-                alert('Transaksi Berhasil Di Kirim, silahkan tunggu beberapa saat');
+
                 console.log('respose server', x.data);
+                alert('Transaksi Berhasil Di Kirim, silahkan tunggu beberapa saat');
                 navigation.replace('MainApp');
             });
     };

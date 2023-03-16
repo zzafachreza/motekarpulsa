@@ -101,9 +101,9 @@ export default function Home({ navigation }) {
       const json = JSON.stringify(remoteMessage);
       const obj = JSON.parse(json);
 
-      navigation.navigate('ListDetail', {
-        kode: obj.notification.title.toString().substring(0, 15)
-      })
+      // navigation.navigate('ListDetail', {
+      //   kode: obj.notification.title.toString().substring(0, 15)
+      // })
 
       PushNotification.localNotification({
         /* Android Only Properties */
